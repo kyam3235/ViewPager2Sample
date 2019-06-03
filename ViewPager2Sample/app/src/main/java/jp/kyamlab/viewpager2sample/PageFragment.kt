@@ -10,12 +10,12 @@ import kotlinx.android.synthetic.main.fragment_page.view.*
 
 class PageFragment : Fragment() {
 
-    private var id: Int? = null
+    private var text: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            id = it.getInt(KEY_ID)
+            text = it.getString(KEY_TEXT)
         }
     }
 
@@ -24,18 +24,18 @@ class PageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_page, container, false)
-        view.text_view.text = id.toString()
+        view.text_view.text = text
 
         return view
     }
 
     companion object {
-        private const val KEY_ID = "id"
+        private const val KEY_TEXT = "key-text"
 
-        fun newInstance(id: Int): PageFragment =
+        fun newInstance(text: String): PageFragment =
             PageFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(KEY_ID, id)
+                    putString(KEY_TEXT, text)
                 }
             }
     }

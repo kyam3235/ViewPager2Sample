@@ -7,7 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class PageAdapter(
     fragmentActivity: FragmentActivity
 ) : FragmentStateAdapter(fragmentActivity) {
-    private val items = listOf(1, 2)
+    private val items = listOf("Page1", "Page2")
 
     override fun getItem(position: Int): Fragment {
         return PageFragment.newInstance(items[position])
