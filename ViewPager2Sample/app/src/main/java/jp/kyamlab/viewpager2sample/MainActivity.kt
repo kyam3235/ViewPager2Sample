@@ -17,22 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        view_pager.adapter = Adapter(supportFragmentManager, this.lifecycle)
-    }
-
-    class Adapter(
-        fragmentManager: FragmentManager,
-        owner: Lifecycle
-    ) : FragmentStateAdapter(fragmentManager, owner) {
-
-        private val items = listOf(1, 2)
-
-        override fun getItem(position: Int): Fragment {
-            return PageFragment.newInstance(items[position])
-        }
-
-        override fun getItemCount(): Int {
-            return items.size
-        }
+        view_pager.adapter = PageAdapter(this)
     }
 }
